@@ -4,6 +4,9 @@ import yaml
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+import json
+from pathlib import Path
+
 
 def load_params():
     with open("params.yaml", "r") as f:
@@ -27,6 +30,16 @@ def evaluate_model():
 
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
+
+    metrics = {
+        "accuracy": float(accuracy),
+        "n_row": int(len(df))
+    }
+
+    Path("metrics").mkdir(exist_ok=True)
+
+    with open("metrics/metrics.json", "w") as f:
+        json.dump(metrics, f, indent=4)
 
     print(f"Accuracy: {accuracy:.4f}")
 
