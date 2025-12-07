@@ -2,14 +2,12 @@
 name = "step4-ge-validation-data"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "chistyakovia", email = "chistyakovia@gmail.com"}
-]
+authors = ["chistyakovia"]
+
 readme = "README.md"
-requires-python = ">=3.12"
 
 [tool.poetry.dependencies]
-python = ">=3.12"
+python = ">=3.10"
 pandas = "~2.2"
 scikit-learn = "~1.5"
 dvc = "~3.50"
