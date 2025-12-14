@@ -38,4 +38,13 @@ stages:
       - src/evaluate.py
       - models/model.pkl
       - data/processed/dataset.csv
+    metrics:
+      - metrics/metrics.json
+
+  validate_model:
+    cmd: python src/validate_model.py
+    deps:
+      - src/validate_model.py
+      - models/model.pkl
       - params.yaml
+      - metrics/metrics.json
